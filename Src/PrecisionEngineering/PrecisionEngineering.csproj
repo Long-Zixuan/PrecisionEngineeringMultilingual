@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C27473C2-C635-4945-BD62-3D96C9A5DA26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrecisionEngineering</RootNamespace>
+    <AssemblyName>PrecisionEngineering</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ColossalManaged">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICities">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>P:\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AngleMeasurement.cs" />
+    <Compile Include="Data\Calculations\Guides.cs" />
+    <Compile Include="Data\Calculations\Node.cs" />
+    <Compile Include="Data\Calculations\Segment.cs" />
+    <Compile Include="Data\DistanceMeasurement.cs" />
+    <Compile Include="Data\GuideLine.cs" />
+    <Compile Include="Data\Language\Language.cs" />
+    <Compile Include="Data\NetToolLocator.cs" />
+    <Compile Include="Debug.cs" />
+    <Compile Include="Data\Measurement.cs" />
+    <Compile Include="Detour\AltKeyFix.cs" />
+    <Compile Include="Detour\FakeRoadAI.cs" />
+    <Compile Include="ModSettings.cs" />
+    <Compile Include="Rendering\DistanceRenderer.cs" />
+    <Compile Include="Rendering\GuideLineRenderer.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Detour\SnapController.cs" />
+    <Compile Include="UI\MeasurementLabel.cs" />
+    <Compile Include="Utilities\BezierUtil.cs" />
+    <Compile Include="Utilities\NetNodeUtility.cs" />
+    <Compile Include="Utilities\NetUtil.cs" />
+    <Compile Include="Detour\RedirectionHelper.cs" />
+    <Compile Include="Utilities\StringUtil.cs" />
+    <Compile Include="Utilities\Util.cs" />
+    <Compile Include="Utilities\Vector3Extensions.cs" />
+    <Compile Include="LoadingExtension.cs" />
+    <Compile Include="Data\NetToolProxy.cs" />
+    <Compile Include="Data\PrecisionCalculator.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="Rendering\AngleRenderer.cs" />
+    <Compile Include="UI\DebugUI.cs" />
+    <Compile Include="UI\PrecisionUI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Mod.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Language\zh_cn.lang" />
+    <None Include="Data\Language\zh_tw.lang" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "%25LOCALAPPDATA%25\Colossal Order\Cities_Skylines\Addons\Mods\$(SolutionName)" 
+del "%25LOCALAPPDATA%25\Colossal Order\Cities_Skylines\Addons\Mods\$(SolutionName)\$(TargetFileName)" 
+xcopy /y "$(TargetPath)" "%25LOCALAPPDATA%25\Colossal Order\Cities_Skylines\Addons\Mods\$(SolutionName)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
