@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("Precision Engineering")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A mod for Cities Skylines")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("LoongLy Software")]
 [assembly: AssemblyProduct("Precision Engineering")]
-[assembly: AssemblyCopyright("Copyright © Simon Moles 2015")]
+[assembly: AssemblyCopyright("Copyright © LoongLy Software 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
